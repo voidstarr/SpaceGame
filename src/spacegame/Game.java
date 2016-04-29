@@ -57,12 +57,12 @@ public class Game extends JApplet { // TODO redo versioning
 		movingObjectHandler = new MovingObjectHandler();
 		collisionDetector = new CollisionDetector();
 		newGame();
-		if (Integer.parseInt(getParameter("id")) < 0) {
-			setLoggedIn(false);
-		} else {
+//		if (Integer.parseInt(getParameter("id")) < 0) {
+//			setLoggedIn(false);
+//		} else {
 			setLoggedIn(true);
-			HighScores.init(Integer.parseInt(getParameter("id")));
-		}
+		//	HighScores.init(Integer.parseInt(getParameter("id")));
+		//}
 	}
 
 	@Override
@@ -112,9 +112,9 @@ public class Game extends JApplet { // TODO redo versioning
 	}
 
 	public static void endGame(boolean win) {
-		if (isLoggedIn())
-			HighScores.sendHighScore(new HighScore(getScore(),
-					getAliensKilled(), getAmmoUsed(), getStage()));
+//		if (isLoggedIn())
+//			HighScores.sendHighScore(new HighScore(getScore(),
+//					getAliensKilled(), getAmmoUsed(), getStage()));
 		if (!win) {
 			addLoss();
 			setState(GameState.endGameLoss);

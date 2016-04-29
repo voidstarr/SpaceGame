@@ -151,7 +151,6 @@ public class Board extends JPanel implements ActionListener {
 		}
 		setFontVars();
 		g2d.setFont(new Font("Segoe Print", Font.PLAIN, 10));
-		g2d.drawString("PJNoMore.info", 320, 270);
 		Toolkit.getDefaultToolkit().sync();
 		g2d.dispose();
 	}
