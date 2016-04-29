@@ -18,6 +18,7 @@ public class ImageHandler {
 			ii = new ImageIcon(this.getClass().getResource("/res/craft.png"));
 		} catch (Exception e) {
 			ii = new ImageIcon("res/craft.png");
+			System.out.println("load res/craft.png");
 		}
 		craft = ii.getImage();
 		try {
@@ -52,6 +53,7 @@ public class ImageHandler {
 			ii = new ImageIcon("res/Background.png");
 		}
 		back = ii.getImage();
+		ii = null;
 	}
 
 	public Image getImage(String a) {

@@ -25,7 +25,7 @@ public class HighScores {
 		String data = "score=" + hs.getScore() + "&kills=" + hs.getKills() + "&shots=" + hs.getShots() + "&stage="
 				+ hs.getStage() + "&by=" + userID;
 		if (hs.getScore() >= MINIMUM_SCORE) {
-			return Utilities.sendPostToPage("http://pjnomore.info/m/highscores/addscore.php?id=2", data, "9001");
+			return Utilities.sendPostToPage(Constants.SITE + "highscores/addscore.php?id=2", data, "9001");
 		}
 		return false;
 	}

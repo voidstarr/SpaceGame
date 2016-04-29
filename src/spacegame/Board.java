@@ -69,10 +69,10 @@ public class Board extends JPanel implements ActionListener {
 		g2d.drawImage(Game.getIH().getImage("back"), 0, 0, null);
 		// g.setColor(Color.WHITE);
 
-		if (!Game.isUpToDate()) {
-			g.setColor(Color.WHITE);
-			g.drawString("", 20, 100);
-		}
+//		if (!Game.isUpToDate()) {
+//			g.setColor(Color.WHITE);
+//			g.drawString("", 20, 100);
+//		}
 
 		/*
 		 * if (Game.getMQH().haveMessageToDisplay()) { Font store = getFont();
@@ -81,13 +81,12 @@ public class Board extends JPanel implements ActionListener {
 		 * g.setFont(store); }
 		 */
 
-		if (!Game.isLoggedIn()) {
-			g.drawString("Notice: You are not eligable to post", 150, 100);
-			g.drawString("highscores! Please sign in.", 150, 115);
-		}
+//		if (!Game.isLoggedIn()) {
+//			g.drawString("Notice: You are not eligible to post", 150, 100);
+//			g.drawString("highscores! Please sign in.", 150, 115);
+//		}
 
 		if (Game.state == GameState.inGame) {
-
 			if (Game.getMOH().getCraft().isVisible())
 				g2d.drawImage(Game.getMOH().getCraft().getImage(), Game
 						.getMOH().getCraft().getX(), Game.getMOH().getCraft()

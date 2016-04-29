@@ -24,7 +24,7 @@ public class MessageQueueHandler extends LoopTask {
 	@Override
 	public int loop() {
 		if (true)
-			return 500;
+			return 50000;
 		if ((msgTimer == null || !msgTimer.isRunning()) && !messages.isEmpty()) {
 			msgTimer = new Timer(messages.get(0).getDisplayTime(),
 					new ActionListener() {

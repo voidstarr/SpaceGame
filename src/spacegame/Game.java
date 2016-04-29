@@ -12,8 +12,6 @@ import spacegame.handlers.CollisionDetector;
 import spacegame.handlers.ImageHandler;
 import spacegame.handlers.MovingObjectHandler;
 import spacegame.misc.Constants;
-import spacegame.misc.HighScores;
-import spacegame.wrappers.HighScore;
 
 @SuppressWarnings("serial")
 public class Game extends JApplet { // TODO redo versioning
@@ -21,13 +19,11 @@ public class Game extends JApplet { // TODO redo versioning
 	private static MovingObjectHandler movingObjectHandler;
 	private static CollisionDetector collisionDetector;
 
-	private static int stage = 1, totAliensKilled, totAmmoUsed, points = 0,
-			totLosses, totWins, lives = 3;
+	private static int stage = 1, totAliensKilled, totAmmoUsed, points = 0, totLosses, totWins, lives = 3;
 
 	private static final double CURRENT_VERSION = getCurrentVersion();
 
-	private static boolean paused,
-			isUpToDate = CURRENT_VERSION == Constants.VERSION, isRunning;
+	private static boolean paused, isUpToDate = CURRENT_VERSION == Constants.VERSION, isRunning;
 
 	public enum GameState {
 		inGame, endGameLoss, endGameWin, menu
@@ -40,6 +36,8 @@ public class Game extends JApplet { // TODO redo versioning
 	public static void main(String[] args) {
 		isApplet = false;
 		setRunning(true);
+		movingObjectHandler = new MovingObjectHandler();
+		collisionDetector = new CollisionDetector();
 		board = new Board(isApplet);
 		gameWindow = new JFrame("PJ's Space v" + Constants.VERSION);
 		gameWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,12 +55,12 @@ public class Game extends JApplet { // TODO redo versioning
 		movingObjectHandler = new MovingObjectHandler();
 		collisionDetector = new CollisionDetector();
 		newGame();
-//		if (Integer.parseInt(getParameter("id")) < 0) {
-//			setLoggedIn(false);
-//		} else {
-			setLoggedIn(true);
-		//	HighScores.init(Integer.parseInt(getParameter("id")));
-		//}
+		// if (Integer.parseInt(getParameter("id")) < 0) {
+		// setLoggedIn(false);
+		// } else {
+		setLoggedIn(true);
+		// HighScores.init(Integer.parseInt(getParameter("id")));
+		// }
 	}
 
 	@Override
@@ -112,9 +110,9 @@ public class Game extends JApplet { // TODO redo versioning
 	}
 
 	public static void endGame(boolean win) {
-//		if (isLoggedIn())
-//			HighScores.sendHighScore(new HighScore(getScore(),
-//					getAliensKilled(), getAmmoUsed(), getStage()));
+		// if (isLoggedIn())
+		// HighScores.sendHighScore(new HighScore(getScore(),
+		// getAliensKilled(), getAmmoUsed(), getStage()));
 		if (!win) {
 			addLoss();
 			setState(GameState.endGameLoss);
